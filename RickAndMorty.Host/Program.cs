@@ -1,32 +1,32 @@
+using Microsoft.AspNetCore;
+using RickAndMorty.Host;
+
 internal class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
-        var builder = WebApplication.CreateBuilder(args);
+        var webHost = BuildWebHost(args);
+        await InitWebServices(webHost);
+    }
+    
+    private static async Task<int> InitWebServices(IWebHost webHost)
+    {
+        await webHost.RunAsync();
 
-// Add services to the container.
-
-        builder.Services.AddControllers();
+        await webHost.StopAsync();
+        Environment.Exit(0);
+        return 0;
+    }
         
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+    public static IWebHost BuildWebHost(string[] args)
+    {
+        var config = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", optional: true)
+            .Build();
 
-        var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
-
-        app.UseHttpsRedirection();
-
-        app.UseAuthorization();
-
-        app.MapControllers();
-
-        app.Run();
+        return WebHost.CreateDefaultBuilder(args)
+            .UseStartup<Startup>()
+            .Build();
     }
 }
