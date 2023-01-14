@@ -11,6 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\RickAndMorty.Api\RickAndMorty.Api.csproj" />
       <ProjectReference Include="..\RickAndMorty.Worker\RickAndMorty.Worker.csproj" />
     </ItemGroup>
 
