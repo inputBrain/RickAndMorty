@@ -32,7 +32,6 @@ public class CharacterSchema
     [JsonPropertyName("image")]
     public string Image { get; set; }
     
-    // TODO:
     [JsonPropertyName("episode")]
     public string[] Episodes { get; set; }
     

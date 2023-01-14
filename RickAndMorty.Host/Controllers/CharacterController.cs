@@ -58,7 +58,7 @@ public class CharacterController : BaseParser
         };
     }
 
-    //string name = "Rick Sanchez", string episode = "S01E01"
+
     [HttpPost]
     public async Task<object> CheckCharacter(string name, string episode)
     {
@@ -71,7 +71,6 @@ public class CharacterController : BaseParser
         {
             foreach (var episodeSchema in searchedEpisodes.Episodes)
             {
-                //TODO:
                 if (characterEpisodes.Contains(episodeSchema.Url))
                 {
                     return true;

@@ -5,7 +5,6 @@ namespace RickAndMorty.Host.Services;
 
 public class BaseParser
 {
-    // https://rickandmortyapi.com/api/episode
     private const string BaseUrl = "https://rickandmortyapi.com/api";
     private readonly HttpClient _client;
 
