@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace RickAndMorty.Worker.JsonModels.Episode;
 
-public class EpisodeData
+public class EpisodeSchema
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }
