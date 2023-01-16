@@ -1,11 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using RickAndMorty.Api.Character;
 using RickAndMorty.Api.Payload.Character;
-using RickAndMorty.Api.Payload.Location;
-using RickAndMorty.Api.Payload.Origin;
 using RickAndMorty.Host.Services;
 using RickAndMorty.ExternalApi.JsonModels.Character;
 using RickAndMorty.ExternalApi.JsonModels.Episode;
+using RickAndMorty.ExternalApi.JsonModels.Location;
 
 namespace RickAndMorty.Host.Controllers;
 
@@ -29,29 +28,23 @@ public class CharacterController : BaseParser
         return new GetList.Response
         {
             Characters = dataJson.Characters.Select(x => 
-                    new Character 
+                new Character 
+                {
+                    Name = x.Name,
+                    Status = x.Status,
+                    Species = x.Species,
+                    Type = x.Type,
+                    Gender = x.Gender,
+                    Origin = new Origin
                     {
-                        Name = x.Name,
-                        Status = x.Status,
-                        Species = x.Species,
-                        Gender = x.Gender,
-                        Type = x.Type,
-                        Origin = new Origin
-                        {
-                            Name = x.Origin.Name,
-                            Url = x.Origin.Url
-                        },
-                        Location = new Location
-                        {
-                            Dimension = x.Location.Name
-                        }
-
-                    }
-                )
-                .ToArray()
+                        Name = x.Origin.Name,
+                        Type = x.Origin.Url,
+                        Dimension = Execute<LocationDataModel>($"/location/?name={x.Location.Name}").Result.Results.First().Dimension
+                    },
+                }
+            ).ToArray()
         };
     }
-
 
     [HttpPost]
     public async Task<object> CheckCharacter(string name, string episode)
