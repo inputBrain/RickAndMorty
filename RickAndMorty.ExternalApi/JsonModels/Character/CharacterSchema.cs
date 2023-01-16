@@ -27,7 +27,7 @@ public class CharacterSchema
     public OriginSchema Origin { get; set; }
     
     [JsonPropertyName("location")]
-    public LocationSchema Location { get; set; }
+    public CharacterLocationSchema Location { get; set; }
     
     [JsonPropertyName("image")]
     public string Image { get; set; }
