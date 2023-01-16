@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace RickAndMorty.Worker.JsonModels.Location;
+namespace RickAndMorty.ExternalApi.JsonModels.Location;
 
 public class LocationSchema
 {

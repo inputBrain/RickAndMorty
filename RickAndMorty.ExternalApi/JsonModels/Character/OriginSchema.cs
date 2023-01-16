@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace RickAndMorty.Worker.JsonModels.Character;
+namespace RickAndMorty.ExternalApi.JsonModels.Character;
 
 public class OriginSchema
 {

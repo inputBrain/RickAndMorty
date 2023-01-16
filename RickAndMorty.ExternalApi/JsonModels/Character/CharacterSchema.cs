@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using RickAndMorty.Worker.JsonModels.Location;
+using RickAndMorty.ExternalApi.JsonModels.Location;
 
-namespace RickAndMorty.Worker.JsonModels.Character;
+namespace RickAndMorty.ExternalApi.JsonModels.Character;
 
 public class CharacterSchema
 {

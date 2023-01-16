@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace RickAndMorty.Worker.JsonModels;
+namespace RickAndMorty.ExternalApi.JsonModels;
 
 public class Links
 {

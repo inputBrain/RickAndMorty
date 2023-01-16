@@ -1,12 +1,12 @@
 using System.Text.Json.Serialization;
 
-namespace RickAndMorty.Worker.JsonModels.Episode;
+namespace RickAndMorty.ExternalApi.JsonModels.Episode;
 
-public class SearchEpisodeSchema
+public class EpisodeDataModel
 {
     [JsonPropertyName("info")]
     public Links Info { get; set; }
     
     [JsonPropertyName("results")]
-    public EpisodeSchema[] Episodes { get; set; }
+    public EpisodeSchema[] Results { get; set; }
 }

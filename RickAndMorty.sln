@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RickAndMorty.Host", "RickAndMorty.Host\RickAndMorty.Host.csproj", "{6EEAB27F-083B-4CA7-82F3-221D9E986331}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RickAndMorty.Worker", "RickAndMorty.Worker\RickAndMorty.Worker.csproj", "{4732D459-BFF9-45F1-A8FE-AF27C6E81211}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RickAndMorty.ExternalApi", "RickAndMorty.ExternalApi\RickAndMorty.ExternalApi.csproj", "{4732D459-BFF9-45F1-A8FE-AF27C6E81211}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RickAndMorty.Api", "RickAndMorty.Api\RickAndMorty.Api.csproj", "{5FE93FE3-9B54-4DB5-A26B-C6F6B0C93636}"
 EndProject

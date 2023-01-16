@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace RickAndMorty.Worker.JsonModels.Episode;
+namespace RickAndMorty.ExternalApi.JsonModels.Episode;
 
 public class EpisodeSchema
 {
