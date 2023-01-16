@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using RickAndMorty.Host.Services;
-using RickAndMorty.Worker.JsonModels.Episode;
+using RickAndMorty.ExternalApi.JsonModels.Episode;
 
 namespace RickAndMorty.Host.Controllers;
 
@@ -13,22 +13,13 @@ public class EpisodeController : BaseParser
     [HttpGet]
     public async Task<object> GetOneEpisode(int id)
     {
-        var dataJson = await Execute<EpisodeSchema>($"/episode/{id}");
-        
-        if (dataJson.Id == 0)
-        {
-            return $"404. Episode with id: {id} not found.";
-        }
-        
-        return dataJson;
+       return await Execute<EpisodeSchema>($"/episode/{id}");
     }
     
     
     [HttpGet]
     public async Task<object> GetAllEpisodes()
     {
-        var dataJson = await Execute<EpisodeDataModel>("/episode");
-        
-        return dataJson;
+        return await Execute<EpisodeDataModel>("/episode");
     }
 }

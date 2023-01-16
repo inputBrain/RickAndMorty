@@ -6,4 +6,7 @@ public class Origin
 {
     [Required]
     public string Name { get; set; }
+    
+    [Required]
+    public string Url { get; set; }
 }

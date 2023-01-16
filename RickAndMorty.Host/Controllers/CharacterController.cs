@@ -4,8 +4,8 @@ using RickAndMorty.Api.Payload.Character;
 using RickAndMorty.Api.Payload.Location;
 using RickAndMorty.Api.Payload.Origin;
 using RickAndMorty.Host.Services;
-using RickAndMorty.Worker.JsonModels.Character;
-using RickAndMorty.Worker.JsonModels.Episode;
+using RickAndMorty.ExternalApi.JsonModels.Character;
+using RickAndMorty.ExternalApi.JsonModels.Episode;
 
 namespace RickAndMorty.Host.Controllers;
 
@@ -17,14 +17,7 @@ public class CharacterController : BaseParser
     [HttpGet]
     public async Task<object> GetOneCharacterById(int id)
     {
-        var dataJson = await Execute<CharacterSchema>($"/character/{id}");
-
-        if (dataJson.Id == 0)
-        {
-            return $"404. Character with id: {id} not found.";
-        }
-
-        return dataJson;
+        return await Execute<CharacterSchema>($"/character/{id}");
     }
 
     [HttpGet]
@@ -46,6 +39,7 @@ public class CharacterController : BaseParser
                         Origin = new Origin
                         {
                             Name = x.Origin.Name,
+                            Url = x.Origin.Url
                         },
                         Location = new Location
                         {

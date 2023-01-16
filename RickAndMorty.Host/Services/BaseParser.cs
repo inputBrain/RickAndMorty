@@ -18,9 +18,10 @@ public class BaseParser
     }
     
 
-    async protected Task<T> Execute<T>(string action) where T : new()
+    async protected Task<T> Execute<T>(string action) where T : class
     {
         var response = await _client.GetAsync(BaseUrl + action);
+        response.EnsureSuccessStatusCode();
 
         var jsonData = await response.Content.ReadAsStreamAsync();
 
